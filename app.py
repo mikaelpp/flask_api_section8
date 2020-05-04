@@ -12,7 +12,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 api = Api(app)
 app.secret_key = 'mikael'
-db.init_app(app)
 
 jwt = JWT(app, authenticate, identity)
 
