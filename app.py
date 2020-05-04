@@ -14,9 +14,6 @@ api = Api(app)
 app.secret_key = 'mikael'
 db.init_app(app)
 
-
-
-
 jwt = JWT(app, authenticate, identity)
 
 api.add_resource(Item, '/item/<string:name>')
@@ -28,5 +25,7 @@ api.add_resource(StoreList, '/storelist')
 api.add_resource(User_register, '/register')
 
 if __name__ == "__main__":
+    from db import db
+    db.init_app(app)
     app.run(port=5000, debug=True)
 
