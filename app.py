@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
-from db import db
 
 from security import authenticate, identity
 from resources.user import User_register
@@ -15,9 +14,7 @@ api = Api(app)
 app.secret_key = 'mikael'
 db.init_app(app)
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
+
 
 
 jwt = JWT(app, authenticate, identity)
